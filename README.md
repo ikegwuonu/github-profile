@@ -29,25 +29,33 @@ A simple, responsive application that allows users to search for GitHub profiles
 
 1. Clone the repository:
    \`\`\`bash
-   git clone https://github.com/yourusername/github-user-search.git
-   cd github-user-search
+   git clone https://github.com/ikegwuonu/github-profile.git
+   cd github-user
    \`\`\`
 
 2. Install dependencies:
    \`\`\`bash
    npm install
+
    # or
+
    yarn install
+
    # or
+
    pnpm install
    \`\`\`
 
 3. Run the development server:
    \`\`\`bash
    npm run dev
+
    # or
+
    yarn dev
+
    # or
+
    pnpm dev
    \`\`\`
 
@@ -62,13 +70,17 @@ A simple, responsive application that allows users to search for GitHub profiles
 ## Implementation Details
 
 ### Search Functionality
+
 The application uses a debounced search input to prevent making API calls on every keystroke. The debounce delay is set to 500ms, which provides a good balance between responsiveness and API efficiency.
 
 ### API Integration
+
 The application fetches user data from the GitHub API using the endpoint `https://api.github.com/users/{username}`. No API key is required for basic usage, but rate limits apply.
 
 ### Error Handling
+
 The application handles various error states:
+
 - User not found (404)
 - Network errors
 - Other API errors
@@ -76,7 +88,9 @@ The application handles various error states:
 Each error is displayed to the user with a clear message.
 
 ### Responsive Design
+
 The UI is fully responsive and works well on both desktop and mobile devices:
+
 - Card layout adjusts for different screen sizes
 - Avatar and user information reorganize on smaller screens
 - Search input and buttons are optimized for touch interfaces
