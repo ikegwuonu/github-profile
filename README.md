@@ -30,7 +30,7 @@ A simple, responsive application that allows users to search for GitHub profiles
 1. Clone the repository:
    \`\`\`bash
    git clone https://github.com/ikegwuonu/github-profile.git
-   cd github-user
+   cd github-profile
    \`\`\`
 
 2. Install dependencies:
