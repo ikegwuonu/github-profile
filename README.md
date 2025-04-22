@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GitHub User Search
 
-## Getting Started
+A simple, responsive application that allows users to search for GitHub profiles using the GitHub API.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Search for GitHub users by username
+- View user profile information including:
+  - Avatar
+  - Name
+  - Bio
+  - Public repositories count
+  - Followers
+  - Link to GitHub profile
+- Responsive design for both desktop and mobile
+- Debounced search to minimize API calls
+- Error handling for user not found and other errors
+- Loading states for better user experience
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js**: React framework for building the application
+- **TypeScript**: For type safety and better developer experience
+- **Tailwind CSS**: For styling and responsive design
+- **shadcn/ui**: For UI components
+- **Lucide React**: For icons
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Setup and Installation
 
-## Learn More
+1. Clone the repository:
+   \`\`\`bash
+   git clone https://github.com/yourusername/github-user-search.git
+   cd github-user-search
+   \`\`\`
 
-To learn more about Next.js, take a look at the following resources:
+2. Install dependencies:
+   \`\`\`bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   \`\`\`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Run the development server:
+   \`\`\`bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   \`\`\`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `app/page.tsx`: Main page component with search functionality
+- `components/user-profile.tsx`: Component to display user profile information
+- `hooks/use-debounce.tsx`: Custom hook for debouncing search input
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Implementation Details
+
+### Search Functionality
+The application uses a debounced search input to prevent making API calls on every keystroke. The debounce delay is set to 500ms, which provides a good balance between responsiveness and API efficiency.
+
+### API Integration
+The application fetches user data from the GitHub API using the endpoint `https://api.github.com/users/{username}`. No API key is required for basic usage, but rate limits apply.
+
+### Error Handling
+The application handles various error states:
+- User not found (404)
+- Network errors
+- Other API errors
+
+Each error is displayed to the user with a clear message.
+
+### Responsive Design
+The UI is fully responsive and works well on both desktop and mobile devices:
+- Card layout adjusts for different screen sizes
+- Avatar and user information reorganize on smaller screens
+- Search input and buttons are optimized for touch interfaces
+
+## Thought Process
+
+When building this application, I focused on:
+
+1. **User Experience**: Creating a clean, intuitive interface that makes it easy to search for and view GitHub profiles.
+
+2. **Performance**: Implementing debouncing to reduce unnecessary API calls and optimize performance.
+
+3. **Error Handling**: Ensuring the application gracefully handles all potential error states and provides clear feedback to users.
+
+4. **Code Quality**: Using TypeScript for type safety, organizing code into reusable components, and following best practices for React and Next.js development.
+
+5. **Responsive Design**: Making sure the application looks and works great on all device sizes.
+
+## Future Improvements
+
+- Add pagination for repositories
+- Implement dark mode
+- Add more detailed user information
+- Save recent searches
+- Add authentication to increase API rate limits
+
+## License
+
+MIT
